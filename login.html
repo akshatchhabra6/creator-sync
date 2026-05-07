@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In | CreatorSync</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+  <div class="auth-bg-shapes">
+    <div class="auth-shape-1"></div>
+    <div class="auth-shape-2"></div>
+  </div>
+
+  <div class="auth-container animate-fade-in">
+    <div class="auth-header">
+      <a href="index.html" class="auth-logo">
+        <i class="fa-solid fa-bolt"></i>
+        <span>CreatorSync</span>
+      </a>
+      <h2>Welcome Back</h2>
+      <p class="text-secondary">Enter your credentials to access your dashboard.</p>
+    </div>
+
+    <div class="glass-panel">
+      <div class="role-toggle">
+        <button class="role-btn active" id="btn-creator">Creator</button>
+        <button class="role-btn" id="btn-brand">Brand</button>
+      </div>
+
+      <form action="creator-dashboard.html" id="login-form">
+        <div class="input-group">
+          <label class="input-label" for="email">Email Address</label>
+          <input type="email" id="email" class="input-field" placeholder="you@example.com" required>
+        </div>
+        
+        <div class="input-group">
+          <label class="input-label" for="password">Password</label>
+          <input type="password" id="password" class="input-field" placeholder="••••••••" required>
+        </div>
+
+        <div class="flex justify-between items-center mb-4 text-sm" style="font-size: 0.875rem;">
+          <label class="flex items-center gap-2">
+            <input type="checkbox" checked>
+            <span class="text-secondary">Remember me</span>
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Log In
+        </button>
+      </form>
+    </div>
+
+    <div class="auth-footer">
+      Don't have an account? <a href="signup.html">Sign up free</a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    const btnCreator = document.getElementById('btn-creator');
+    const btnBrand = document.getElementById('btn-brand');
+    const loginForm = document.getElementById('login-form');
+
+    btnCreator.addEventListener('click', () => {
+      btnCreator.classList.add('active');
+      btnBrand.classList.remove('active');
+      loginForm.action = 'creator-dashboard.html';
+    });
+
+    btnBrand.addEventListener('click', () => {
+      btnBrand.classList.add('active');
+      btnCreator.classList.remove('active');
+      loginForm.action = 'brand-dashboard.html';
+    });
+  </script>
+</body>
+</html>

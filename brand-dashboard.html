@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Dashboard | CreatorSync</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="sidebar-logo">
+        <i class="fa-solid fa-bolt"></i>
+        <span>CreatorSync</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="brand-dashboard.html" class="nav-link active">
+          <i class="fa-solid fa-house"></i> Dashboard
+        </a>
+        <a href="brand-profile.html" class="nav-link">
+          <i class="fa-solid fa-building"></i> Company Profile
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-plus-circle"></i> Create Campaign
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-envelope"></i> Messages
+          <span class="badge badge-primary" style="margin-left: auto;">5</span>
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-chart-pie"></i> ROI Analytics
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile mb-4">
+          <div class="avatar" style="background: #0ea5e9;">A</div>
+          <div>
+            <div style="font-weight: 600;">Acme Corp</div>
+            <div style="font-size: 0.875rem; color: var(--text-secondary);">Marketing Team</div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-link">
+          <i class="fa-solid fa-right-from-bracket"></i> Log Out
+        </a>
+        <button id="theme-toggle" class="btn btn-ghost" style="width: 100%; justify-content: flex-start; margin-top: 1rem;">
+          <i class="fa-solid fa-moon"></i> Theme
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-toggle" id="mobile-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div>
+          <h2>Brand Dashboard 📈</h2>
+          <p class="text-secondary">Manage your active campaigns and review creator applications.</p>
+        </div>
+        <div>
+          <a href="#" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Campaign</a>
+        </div>
+      </header>
+
+      <!-- Stats Overview -->
+      <section class="dashboard-grid">
+        <div class="card stat-card animate-fade-in stagger-1">
+          <div class="stat-icon bg-primary-light">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
+          <div class="stat-info">
+            <h4>Active Campaigns</h4>
+            <div class="value">4</div>
+          </div>
+        </div>
+
+        <div class="card stat-card animate-fade-in stagger-2">
+          <div class="stat-icon bg-accent-light">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <h4>Total Applicants</h4>
+            <div class="value">128</div>
+          </div>
+        </div>
+
+        <div class="card stat-card animate-fade-in stagger-3">
+          <div class="stat-icon bg-green-light">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="stat-info">
+            <h4>Est. Reach</h4>
+            <div class="value">2.4M</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Manage Campaigns -->
+      <section class="card animate-fade-in stagger-2">
+        <div class="section-title">
+          <h3>Recent Campaigns</h3>
+          <div class="flex gap-2">
+            <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Filter</button>
+          </div>
+        </div>
+        
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-secondary);">
+                <th style="padding: 1rem 0;">Campaign Name</th>
+                <th style="padding: 1rem 0;">Status</th>
+                <th style="padding: 1rem 0;">Applicants</th>
+                <th style="padding: 1rem 0;">Budget</th>
+                <th style="padding: 1rem 0;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1.5rem 0; font-weight: 500;">Summer Festival Outreach</td>
+                <td><span class="badge badge-primary">Active</span></td>
+                <td>42 <a href="#" style="font-size: 0.875rem; margin-left: 0.5rem;">Review</a></td>
+                <td>$5,000</td>
+                <td>
+                  <a href="campaign.html" class="btn btn-ghost" style="padding: 0.5rem; border-radius: 8px;"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1.5rem 0; font-weight: 500;">Tech Product Launch Video</td>
+                <td><span class="badge badge-accent">Draft</span></td>
+                <td>0</td>
+                <td>$12,000</td>
+                <td>
+                  <a href="campaign.html" class="btn btn-ghost" style="padding: 0.5rem; border-radius: 8px;"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 1.5rem 0; font-weight: 500;">Holiday Gift Guide</td>
+                <td><span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Completed</span></td>
+                <td>86</td>
+                <td>$8,500</td>
+                <td>
+                  <a href="campaign.html" class="btn btn-ghost" style="padding: 0.5rem; border-radius: 8px;"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Sidebar toggle for mobile
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobile-toggle');
+    
+    if(mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

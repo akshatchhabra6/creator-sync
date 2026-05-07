@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Profile | CreatorSync</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    .brand-hero {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      height: 200px;
+      border-radius: 16px 16px 0 0;
+      position: relative;
+    }
+    .brand-logo {
+      width: 100px;
+      height: 100px;
+      background: white;
+      border: 4px solid var(--card-bg);
+      border-radius: 16px;
+      position: absolute;
+      bottom: -40px;
+      left: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #0ea5e9;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .brand-info {
+      padding: 3rem 2rem 2rem 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="sidebar-logo">
+        <i class="fa-solid fa-bolt"></i>
+        <span>CreatorSync</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="brand-dashboard.html" class="nav-link"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a href="brand-profile.html" class="nav-link active"><i class="fa-solid fa-building"></i> Company Profile</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="theme-toggle" class="btn btn-ghost" style="width: 100%; justify-content: flex-start;">
+          <i class="fa-solid fa-moon"></i> Theme
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-toggle" id="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <h2>Company Profile</h2>
+        </div>
+        <div>
+          <button class="btn btn-secondary"><i class="fa-regular fa-pen-to-square"></i> Edit Company Details</button>
+        </div>
+      </header>
+
+      <div class="animate-fade-in stagger-1">
+        <div class="brand-hero">
+          <div class="brand-logo">A</div>
+        </div>
+        <div class="brand-info">
+          <div class="flex justify-between items-start">
+            <div>
+              <h1 class="mb-1">Acme Corp</h1>
+              <p class="text-secondary mb-3"><i class="fa-solid fa-location-dot"></i> San Francisco, CA • Tech & Lifestyle</p>
+            </div>
+            <a href="https://acmecorp.com" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+              <i class="fa-solid fa-link"></i> Website
+            </a>
+          </div>
+          <p style="line-height: 1.6; max-width: 800px;">
+            Acme Corp is a leading innovator in everyday technology and smart home gadgets. We love partnering with genuine creators who have an authentic voice and love for innovation. Our ambassador programs are built on long-term relationships rather than one-off posts.
+          </p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="card animate-fade-in stagger-2">
+          <h3 class="mb-4">Public Campaigns (2)</h3>
+          
+          <div class="campaign-list">
+            <div class="campaign-item">
+              <div class="campaign-info">
+                <h4>Summer Tech Essentials</h4>
+                <div class="campaign-meta">
+                  <span>$1k - $3k Budget</span>
+                  <span><i class="fa-brands fa-tiktok"></i> TikTok, YouTube</span>
+                </div>
+              </div>
+              <a href="campaign.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+            </div>
+
+            <div class="campaign-item">
+              <div class="campaign-info">
+                <h4>Back to School Desk Setup</h4>
+                <div class="campaign-meta">
+                  <span>Product Exchange + Commission</span>
+                  <span><i class="fa-brands fa-instagram"></i> Instagram</span>
+                </div>
+              </div>
+              <a href="campaign.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View</a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="card animate-fade-in stagger-3">
+          <h3 class="mb-4">What We Look For</h3>
+          <ul class="text-secondary" style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+            <li><i class="fa-solid fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> High engagement over sheer follower count</li>
+            <li><i class="fa-solid fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> Authentic storytelling and video content</li>
+            <li><i class="fa-solid fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> Audience based primarily in North America or Europe</li>
+            <li><i class="fa-solid fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> Creators who regularly engage with their comments</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

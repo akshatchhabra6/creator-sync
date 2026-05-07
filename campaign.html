@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Details | CreatorSync</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    .campaign-header {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .campaign-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      opacity: 0.15;
+      z-index: 0;
+    }
+    
+    .campaign-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .meta-box {
+      background: rgba(99, 102, 241, 0.05);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar (Simplified for preview) -->
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="sidebar-logo">
+        <i class="fa-solid fa-bolt"></i>
+        <span>CreatorSync</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="creator-dashboard.html" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="theme-toggle" class="btn btn-ghost" style="width: 100%; justify-content: flex-start;">
+          <i class="fa-solid fa-moon"></i> Theme
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-toggle" id="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <h2>Campaign Details</h2>
+        </div>
+      </header>
+
+      <section class="campaign-header animate-fade-in stagger-1">
+        <div class="campaign-banner"></div>
+        <div style="position: relative; z-index: 1;">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="avatar" style="width: 64px; height: 64px; font-size: 2rem; background: #000;">N</div>
+            <div>
+              <h1 style="font-size: 2rem; margin-bottom: 0.25rem;">Nike Summer Fit Campaign</h1>
+              <a href="brand-profile.html" class="text-secondary" style="font-weight: 500;">By Nike Inc.</a>
+            </div>
+            <div style="margin-left: auto;">
+              <button class="btn btn-primary" onclick="alert('Application Submitted Successfully!')">Apply Now</button>
+            </div>
+          </div>
+          
+          <div class="campaign-meta-grid">
+            <div class="meta-box">
+              <div class="text-secondary" style="font-size: 0.875rem;">Budget</div>
+              <div style="font-size: 1.25rem; font-weight: 700;">$1,500 - $3,000</div>
+            </div>
+            <div class="meta-box">
+              <div class="text-secondary" style="font-size: 0.875rem;">Platform</div>
+              <div style="font-size: 1.25rem; font-weight: 700;"><i class="fa-brands fa-instagram"></i> Instagram</div>
+            </div>
+            <div class="meta-box">
+              <div class="text-secondary" style="font-size: 0.875rem;">Niche</div>
+              <div style="font-size: 1.25rem; font-weight: 700;">Fitness & Lifestyle</div>
+            </div>
+            <div class="meta-box">
+              <div class="text-secondary" style="font-size: 0.875rem;">Deadline</div>
+              <div style="font-size: 1.25rem; font-weight: 700;">August 15, 2026</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="dashboard-grid" style="grid-template-columns: 2fr 1fr;">
+        <!-- Campaign Brief -->
+        <section class="card animate-fade-in stagger-2">
+          <h3 class="mb-3">Campaign Overview</h3>
+          <p class="mb-3 text-secondary">
+            Nike is launching its new "Summer Fit" collection, designed for high-performance outdoor workouts. We are looking for passionate fitness creators who embodies the spirit of our brand to showcase how our new apparel enhances their daily routines.
+          </p>
+          
+          <h4 class="mb-2">Deliverables</h4>
+          <ul style="list-style: disc; padding-left: 1.5rem;" class="mb-4 text-secondary">
+            <li class="mb-1">1 Dedicated Instagram Reel (30-60 secs)</li>
+            <li class="mb-1">2 Instagram Story sets (3 frames each) with Swipe Up link</li>
+            <li class="mb-1">High-quality lifestyle photography (minimum 3 edited shots)</li>
+          </ul>
+          
+          <h4 class="mb-2">Usage Rights</h4>
+          <p class="text-secondary">3 months digital and paid social usage rights.</p>
+        </section>
+
+        <!-- Requirements -->
+        <section class="card animate-fade-in stagger-3">
+          <h3 class="mb-3">Requirements</h3>
+          
+          <div class="mb-3">
+            <div class="text-secondary" style="font-size: 0.875rem;">Min Followers</div>
+            <div style="font-weight: 600;">50,000+</div>
+          </div>
+          
+          <div class="mb-3">
+            <div class="text-secondary" style="font-size: 0.875rem;">Location</div>
+            <div style="font-weight: 600;">United States, UK, Canada</div>
+          </div>
+          
+          <div class="mb-4">
+            <div class="text-secondary" style="font-size: 0.875rem; margin-bottom: 0.5rem;">Target Audience Demographics</div>
+            <div class="flex gap-2" style="flex-wrap: wrap;">
+              <span class="badge" style="background: var(--bg-color); border: 1px solid var(--border-color);">Age 18-34</span>
+              <span class="badge" style="background: var(--bg-color); border: 1px solid var(--border-color);">Male / Female</span>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary" style="width: 100%;"><i class="fa-regular fa-bookmark"></i> Save for later</button>
+        </section>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

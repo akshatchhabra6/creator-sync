@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreatorSync | Connect, Collaborate, Create</title>
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  
+  <style>
+    /* Landing Page Specific Styles */
+    header {
+      padding: 1rem 0;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .logo span {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-links a.nav-item {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    
+    .nav-links a.nav-item:hover {
+      color: var(--primary-color);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .hero-bg-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    
+    .shape-1 {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(255,255,255,0) 70%);
+      filter: blur(40px);
+    }
+    
+    .shape-2 {
+      position: absolute;
+      bottom: -10%;
+      left: 5%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(255,255,255,0) 70%);
+      filter: blur(50px);
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      opacity: 0;
+    }
+    
+    .hero-title {
+      font-size: 4.5rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
+    
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+    }
+    
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      opacity: 0;
+    }
+    
+    /* Stats Section */
+    .stats-container {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      opacity: 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      text-align: left;
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Brands Section */
+    .brands-section {
+      padding: 4rem 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .brand-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      align-items: center;
+      opacity: 0.7;
+    }
+    
+    .brand-grid img {
+      height: 40px;
+      filter: grayscale(100%);
+      transition: var(--transition);
+    }
+    
+    .brand-grid img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* Creators Section */
+    .creators-section {
+      padding: 5rem 0;
+    }
+    
+    .creators-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .creator-card {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 20px;
+    }
+    
+    .creator-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      object-fit: cover;
+      border: 4px solid var(--card-bg);
+      box-shadow: 0 10px 25px rgba(236,72,153,0.2);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 5rem 0;
+      background: var(--card-bg);
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 3rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .faq-item {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-color);
+      transition: var(--transition);
+    }
+    
+    .faq-question {
+      padding: 1.5rem;
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+    
+    .faq-question:hover {
+      color: var(--primary-color);
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--text-secondary);
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 0 1.5rem 1.5rem 1.5rem;
+      max-height: 200px;
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+      color: var(--primary-color);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 3rem; }
+      .nav-links.desktop-only { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero-cta { flex-direction: column; }
+      .stats-container { grid-template-columns: 1fr; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="glass-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-bolt"></i>
+        <span>CreatorSync</span>
+      </a>
+      
+      <nav class="nav-links desktop-only">
+        <a href="#features" class="nav-item">Features</a>
+        <a href="#how-it-works" class="nav-item">How it Works</a>
+        <a href="#testimonials" class="nav-item">Testimonials</a>
+      </nav>
+      
+      <div class="nav-links desktop-only">
+        <button id="theme-toggle" class="btn btn-ghost" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn btn-ghost">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up Free</a>
+      </div>
+
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="hero-bg-shapes">
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+      </div>
+      
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge animate-fade-in">
+            <span class="badge badge-accent">New</span> Introducing Smart Match AI for Brands
+          </div>
+          
+          <h1 class="hero-title animate-fade-in stagger-1">
+            Where Creativity Meets <br/><span class="highlight">Opportunity</span>
+          </h1>
+          
+          <p class="hero-subtitle animate-fade-in stagger-2">
+            The premier platform connecting content creators with innovative brands for meaningful collaborations, sponsorships, and PR campaigns.
+          </p>
+          
+          <div class="hero-cta animate-fade-in stagger-3">
+            <a href="signup.html?role=creator" class="btn btn-primary">
+              I'm a Creator
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="signup.html?role=brand" class="btn btn-secondary">
+              I'm a Brand
+            </a>
+          </div>
+          
+          <div class="glass-panel stats-container animate-fade-in stagger-3">
+            <div class="stat-item">
+              <div class="stat-value">50k+</div>
+              <div class="stat-label">Active Creators</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">2,000+</div>
+              <div class="stat-label">Partner Brands</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">$5M+</div>
+              <div class="stat-label">Paid to Creators</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Trusted Brands -->
+<section class="brands-section">
+  <div class="container">
+    <p class="text-center text-secondary mb-4" 
+       style="font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">
+       Trusted by Top Brands
+    </p>
+
+    <div class="brand-grid">
+      <img src="mancompanylogo.png" alt="The Man Company">
+      <img src="wishcarelogo.png" alt="Wishcare">
+      <img src="newmelogo.png" alt="Newme">
+      <img src="fasttracklogo.png" alt="Fastrack">
+      <img src="nivealogo.png" alt="Nivea">
+    </div>
+  </div>
+</section>
+
+
+<!-- Top Creators -->
+<section class="creators-section">
+  <div class="container">
+    <div class="section-header mb-0">
+      <h2>Meet Our Top Creators</h2>
+      <p class="text-secondary">
+        Collaborate with the most influential voices in the industry.
+      </p>
+    </div>
+
+    <div class="creators-grid">
+
+      <div class="card creator-card">
+        <img src="faisu.png" class="creator-img">
+        <h4 class="mb-1">Mr. Faisu</h4>
+        <span class="badge badge-primary">Lifestyle</span>
+      </div>
+
+      <div class="card creator-card">
+        <img src="rebelkid.png" class="creator-img">
+        <h4 class="mb-1">Rebel Kid</h4>
+        <span class="badge badge-accent">Comedy</span>
+      </div>
+
+      <div class="card creator-card">
+        <img src="mostlysane.png" class="creator-img">
+        <h4 class="mb-1">Mostly Sane</h4>
+        <span class="badge badge-primary">Entertainment</span>
+      </div>
+
+      <div class="card creator-card">
+        <img src="harshbeniwal.png" class="creator-img">
+        <h4 class="mb-1">Harsh Beniwal</h4>
+        <span class="badge badge-accent">Comedy</span>
+      </div>
+
+      <div class="card creator-card">
+        <img src="bhuvambam.png" class="creator-img">
+        <h4 class="mb-1">Bhuvan Bam</h4>
+        <span class="badge badge-primary">Comedy</span>
+      </div>
+
+      <div class="card creator-card">
+        <img src="yuvrajdua.png" class="creator-img">
+        <h4 class="mb-1">Yuvraj Dua</h4>
+        <span class="badge badge-accent">Vlog</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <!-- Platform Overview/Features -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose CreatorSync?</h2>
+          <p class="text-secondary">A seamless workflow tailored for both sides of the collaboration.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="card feature-card">
+            <div class="feature-icon">
+              <i class="fa-regular fa-id-card"></i>
+            </div>
+            <h3>Professional Profiles</h3>
+            <p class="text-secondary">Showcase your portfolio, audience analytics, and past brand deals in one verified place.</p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+            </div>
+            <h3>Smart Discovery</h3>
+            <p class="text-secondary">Brands can easily filter creators by niche, engagement rate, platform, and audience demographics.</p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <h3>Seamless Collabs</h3>
+            <p class="text-secondary">Manage campaign applications, negotiations, and deliverables securely within the platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+          <p class="text-secondary">Everything you need to know about getting started.</p>
+        </div>
+        
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">How do I verify my creator profile? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>You can verify your profile by linking at least two of your major social media accounts (Instagram, YouTube, etc.) during signup. Our team reviews all applications within 24 hours.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Is it free for creators to join? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>Yes, CreatorSync is 100% free for all creators. We do not take a cut from your earnings if the brand pays you directly off-platform, unless you elect to use our escrow payment system.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">How do brands contact me? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>Once you apply to a campaign or if a brand discovers you in our directory, they can initiate a chat with you directly in your CreatorSync dashboard.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What payment methods are supported for brands? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>Brands can fund campaigns using Credit Card, ACH transfers, and standard bank wires for enterprise accounts. Funds are held securely until the content is approved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
